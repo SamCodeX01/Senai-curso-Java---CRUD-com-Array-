@@ -1,16 +1,32 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
+
+        String[] nomes = {"Tim", "Bob", "Mary", "Jonh"}; // Array original (tamanho 4)
+        String[] novosNomes = new String[3];  // Novo array com tamanho 3 (para "remover" 1 elemento)
+        int tirar = 1; // Índice do elemento a ser removido ("Bob")
+
+        for (int i = 0, j = 0; i < nomes.length; i++) {//int j = 0; Índice para o novo array, índice do novosNomes
+            if (i != tirar) {  // Se NÃO for o índice a ser removido
+                novosNomes[j] = nomes[i]; //Copia para o novo array
+                j++;  // Avança no índice do novo array
+            }
+        }
+        for (int i = 0; i < novosNomes.length; i++) {
+            System.out.println(novosNomes[i]);
+        }
+
+        System.out.println("--------------------------------------------");
+
         Scanner sc = new Scanner(System.in);
 
-        String[] listaDeFilmes = new String[3];
         String[] stringFilmes = new String[3];
+        String[] listaDeFilmes = new String[3];
+        String[] novaListaFilmes = new String[2];
 
-       stringFilmes[0] = "Nome do filme: ";
+        stringFilmes[0] = "Nome do filme: ";
         stringFilmes[1] = "Gênero do filme: ";
         stringFilmes[2] = "Nota do filme: ";
-
 
     for(int i = 0; i <3; i++){
         System.out.print("Nome do filme: ");
@@ -26,6 +42,39 @@ public class Main {
             System.out.println(stringFilmes[i] + listaDeFilmes[i]);
         }
 
+    }
+        System.out.print("\n**********-----**********");
+
+        System.out.print("Deseja remover alguma informação? Digite \"Sim ou Não\":");
+        String simOunao = sc.next();
+
+        if(simOunao.equalsIgnoreCase("Sim")){
+            System.out.print("Digite \"1\" para remover o Nome do Filme: \n" +
+                             "Digite \"2\" para remover o Gênero do Filme: \n" +
+                             "Digite \"3\" para remover a Nota Nome do Filme: \n" +
+                             "Digite aqui: ");
+            int qual = sc.nextInt();
+
+            if(simOunao.equalsIgnoreCase("Sim")){
+                switch (qual){
+                    case 1:
+                        for (int i = 0,  j = 0; i < listaDeFilmes.length;i++){
+                            if(i != 0){
+                                novaListaFilmes[j] = listaDeFilmes[i];
+                                j++;
+                            }
+                            for(int x = 0; x < novaListaFilmes.length; i++){
+                                System.out.println(novaListaFilmes[x]);
+                            }
+                        }
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+
+                }
+        }
     }
 
 
